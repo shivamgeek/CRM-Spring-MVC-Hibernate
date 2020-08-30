@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.shivam.Entity.Customer;
 
 //Add @Repository to make it available for Spring during scanning of packagesToScan
-//Annotation @Repository is only applicable for DAO implementation classes.
+//Annotation @Repository is only applicable for DAO implementation classes. This is just like @Component annotation.
 
 @Repository
 public class CustomerDAOImpl implements CustomerDAO{
