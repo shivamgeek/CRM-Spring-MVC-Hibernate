@@ -7,7 +7,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import com.shivam.DAO.CustomerDAO;
 import com.shivam.Entity.Customer;
 import com.shivam.Service.CustomerService;
 
@@ -33,4 +32,12 @@ public class CustomerController {
 		
 		return "list-customers"; 
 	}
+	
+	@GetMapping("/addCustomerForm")
+	public String showAddCustomerForm(Model model) {
+		
+		return "add-customer-form";
+	}
+	
+	
 }
