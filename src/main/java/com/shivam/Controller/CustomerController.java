@@ -35,7 +35,8 @@ public class CustomerController {
 	
 	@GetMapping("/addCustomerForm")
 	public String showAddCustomerForm(Model model) {
-		
+		Customer c = new Customer();
+		model.addAttribute("customerData", c);
 		return "add-customer-form";
 	}
 	
