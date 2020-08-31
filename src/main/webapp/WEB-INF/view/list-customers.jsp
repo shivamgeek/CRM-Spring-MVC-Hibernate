@@ -8,6 +8,11 @@
 <head>
 <meta charset="UTF-8">
 <title>List customers</title>
+
+<link type="text/css" rel="stylesheet" 
+	  href = "${pageContext.request.contextPath}/css_styling/style.css" />
+	  
+
 </head>
 <body>
 
