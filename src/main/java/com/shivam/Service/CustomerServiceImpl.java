@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.shivam.DAO.CustomerDAO;
 import com.shivam.Entity.Customer;
@@ -20,6 +21,7 @@ public class CustomerServiceImpl implements CustomerService{
 	@Autowired
 	CustomerDAO customerDao;
 	
+	@Transactional
 	public List<Customer> getCustomerList() {
 		return customerDao.getCustomerList();
 	}
