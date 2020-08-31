@@ -9,23 +9,24 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import com.shivam.DAO.CustomerDAO;
 import com.shivam.Entity.Customer;
+import com.shivam.Service.CustomerService;
 
 @Controller
 @RequestMapping("/customer")
 public class CustomerController {
 
-	/* This works because in CustomerDaoImpl we gave annotation @Repository, so spring will register it as a bean,
-	 * just like @Controller. @Autowired will do dependency injection of CustomerDaoImpl here.
+	/* This works because in CustomerServiceImpl we gave annotation @Service, so spring will register it as a bean,
+	 * just like @Controller. @Autowired will do dependency injection of CustomerServiceImpl here.
 	 */
 	@Autowired
-	CustomerDAO customerDao;
+	CustomerService customerService;
 	
 	
 	//@RequestMapping(path="/list" , method=RequestMethod.GET)
 	@GetMapping("/list")
 	public String listCustomers(Model model) {
 		//Get customer list from Dao
-		List<Customer> customerList = customerDao.getCustomerList();
+		List<Customer> customerList = customerService.getCustomerList();
 		
 		//Add that list to model
 		model.addAttribute("customerList",customerList);
