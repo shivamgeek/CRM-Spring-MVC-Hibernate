@@ -6,5 +6,7 @@ import com.shivam.Entity.Customer;
 public interface CustomerDAO {
 
 	public List<Customer> getCustomerList();
+
+	public void saveCustomer(Customer c);
 	
 }

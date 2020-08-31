@@ -26,4 +26,10 @@ public class CustomerDAOImpl implements CustomerDAO{
 		return customerList;
 	}
 
+
+	public void saveCustomer(Customer c) {
+		Session session = mySessionFactory.getCurrentSession();
+		session.save(c);
+	}
+
 }

@@ -7,5 +7,7 @@ import com.shivam.Entity.Customer;
 public interface CustomerService {
 
 	public List<Customer> getCustomerList();
+
+	public void saveCustomer(Customer c);
 	
 }

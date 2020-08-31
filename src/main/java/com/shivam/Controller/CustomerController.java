@@ -46,8 +46,7 @@ public class CustomerController {
 	
 	@PostMapping("/saveCustomerData")
 	public String saveCustomerData(@ModelAttribute("customerData") Customer c) {
-		
-		
+		customerService.saveCustomer(c);
 		return "redirect:/customer/list";
 	}
 	
