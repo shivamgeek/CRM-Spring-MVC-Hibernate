@@ -6,7 +6,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.shivam.Entity.Customer;
 import com.shivam.Service.CustomerService;
 
@@ -38,6 +41,14 @@ public class CustomerController {
 		Customer c = new Customer();
 		model.addAttribute("customerData", c);
 		return "add-customer-form";
+	}
+	
+	
+	@PostMapping("/saveCustomerData")
+	public String saveCustomerData(@ModelAttribute("customerData") Customer c) {
+		
+		
+		return "redirect:/customer/list";
 	}
 	
 	
