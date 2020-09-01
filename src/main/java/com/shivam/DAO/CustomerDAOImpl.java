@@ -2,11 +2,12 @@ package com.shivam.DAO;
 
 import java.util.List;
 
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 import com.shivam.Entity.Customer;
 
 //Add @Repository to make it available for Spring during scanning of packagesToScan
@@ -37,6 +38,14 @@ public class CustomerDAOImpl implements CustomerDAO{
 		Session session = mySessionFactory.getCurrentSession();
 		Customer c = session.get(Customer.class, id);
 		return c;
+	}
+
+
+	public void deleteCustomer(int id) {
+		Session session = mySessionFactory.getCurrentSession();
+		Query query = session.createQuery("delete from Customer where id=:custID");
+		query.setParameter("custID", id);
+		query.executeUpdate();
 	}
 
 }
