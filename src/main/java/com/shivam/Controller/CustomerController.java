@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.shivam.Entity.Customer;
 import com.shivam.Service.CustomerService;
@@ -48,6 +49,13 @@ public class CustomerController {
 	public String saveCustomerData(@ModelAttribute("customerData") Customer c) {
 		customerService.saveCustomer(c);
 		return "redirect:/customer/list";
+	}
+	
+	@GetMapping("showCustomerUpdateForm")
+	public String updateCustomerData(@RequestParam("customerID") int id, Model model) {
+		
+		
+		return "update-customer-form";
 	}
 	
 	
