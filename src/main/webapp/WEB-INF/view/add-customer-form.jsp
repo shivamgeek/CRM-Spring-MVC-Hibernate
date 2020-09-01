@@ -23,6 +23,13 @@
 		<div id="container">
 		<h2>Add Customer</h2>	
 		<form:form action="saveCustomerData" modelAttribute="customerData" method="POST">
+			<!--  Hidden field will initially call getID() on customerData, and while submitting that same data will be set.
+				  In case of CREATE - this ID will be empty and will be set empty so create will be called by hibernate.
+				  In case of UPDATE - we'll be sending pre-populated object to this form, so ID will not be empty and same will
+				  be sent to controller where this logic will be checked by hibernate in saveOrUpdate
+			 -->
+			<form:hidden path="id" />
+			
 			<table>
 				<tbody>
 					<tr>

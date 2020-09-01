@@ -29,7 +29,7 @@ public class CustomerDAOImpl implements CustomerDAO{
 
 	public void saveCustomer(Customer c) {
 		Session session = mySessionFactory.getCurrentSession();
-		session.save(c);
+		session.saveOrUpdate(c);
 	}
 
 
