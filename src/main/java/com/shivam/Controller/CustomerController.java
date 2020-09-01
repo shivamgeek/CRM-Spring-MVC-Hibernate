@@ -51,11 +51,11 @@ public class CustomerController {
 		return "redirect:/customer/list";
 	}
 	
-	@GetMapping("showCustomerUpdateForm")
+	@GetMapping("/showCustomerUpdateForm")
 	public String updateCustomerData(@RequestParam("customerID") int id, Model model) {
-		
-		
-		return "update-customer-form";
+		Customer c = customerService.getCustomerUsingID(id);
+		model.addAttribute("customerData",c);
+		return "add-customer-form";
 	}
 	
 	

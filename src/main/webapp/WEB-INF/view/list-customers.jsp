@@ -44,7 +44,7 @@
 						<td>${cust.email}</td>
 						<td>
 						<!--  CREATE UPDATE LINK -->
-						<c:url var="updateLink" value="customer/showCustomerUpdateForm">
+						<c:url var="updateLink" value="/customer/showCustomerUpdateForm">
 							<c:param name="customerID" value="${cust.id}" />
 						</c:url>
 						 

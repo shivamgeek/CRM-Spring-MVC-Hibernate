@@ -32,4 +32,11 @@ public class CustomerDAOImpl implements CustomerDAO{
 		session.save(c);
 	}
 
+
+	public Customer getCustomerUsingID(int id) {
+		Session session = mySessionFactory.getCurrentSession();
+		Customer c = session.get(Customer.class, id);
+		return c;
+	}
+
 }
