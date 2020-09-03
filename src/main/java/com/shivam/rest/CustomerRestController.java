@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -42,6 +43,14 @@ public class CustomerRestController {
 		//Set the id explicitly to 0, because in hibernate we're using saveOrUpdate() which checks this ID
 		// if it's empty or 0, then it creates a new customer, else updates existing
 		c.setId(0);
+		custService.saveCustomer(c);
+		return c;
+	}
+	
+	//PUT to udpate a existing customer
+	@PutMapping("/customers")
+	public Customer udpateCustomer(@RequestBody Customer c) {
+		//We have saveOrUpdate in hibernate so it'll automatically update the customer
 		custService.saveCustomer(c);
 		return c;
 	}
