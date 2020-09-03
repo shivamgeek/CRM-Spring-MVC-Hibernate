@@ -3,6 +3,7 @@ package com.shivam.rest;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -53,6 +54,17 @@ public class CustomerRestController {
 		//We have saveOrUpdate in hibernate so it'll automatically update the customer
 		custService.saveCustomer(c);
 		return c;
+	}
+	
+	//DELETE to delete a customer
+	@DeleteMapping("/customers/{customerID}")
+	public String deleteCustomer(@PathVariable("customerID") int id) {
+		Customer c = custService.getCustomerUsingID(id);
+		if(c == null) {
+			throw new CustomerException("No customer found with ID "+id);
+		}
+		custService.deleteCustomer(id);
+		return "Customer deleted with ID "+id;
 	}
 	
 	
