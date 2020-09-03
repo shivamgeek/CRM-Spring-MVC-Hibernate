@@ -28,6 +28,9 @@ public class CustomerRestController {
 	@GetMapping("/customers/{customerID}")
 	public Customer getCustomer(@PathVariable("customerID") int id) {
 		Customer c = custService.getCustomerUsingID(id);
+		if(c == null) {
+			throw new CustomerException("Invalid customer ID passed, no record found !");
+		}
 		return c;
 	}
 	
